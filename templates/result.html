@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}Inspection Result | StitchSense{% endblock %}
+
+{% block content %}
+<div class="result-container">
+    <!-- Breadcrumb & Navigation -->
+    <div class="result-header">
+        <a href="{{ url_for('index') }}" class="back-link">← Upload Another Garment</a>
+        <span class="garment-id">Record Reference: #{{ record.id if record else 'DEMO' }}</span>
+    </div>
+
+    <!-- KPI Summary Row -->
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <span class="kpi-label">Quality Status</span>
+            <span class="kpi-value {{ 'status-pass' if result.is_passed else 'status-fail' }}">
+                {{ result.status }}
+            </span>
+        </div>
+        <div class="kpi-card">
+            <span class="kpi-label">Primary Defect</span>
+            <span class="kpi-value primary-issue">{{ result.primary_defect }}</span>
+        </div>
+        <div class="kpi-card">
+            <span class="kpi-label">Overall Severity</span>
+            <span class="kpi-value severity-{{ result.overall_severity | lower }}">
+                {{ result.overall_severity }}
+            </span>
+        </div>
+        <div class="kpi-card">
+            <span class="kpi-label">Defects Detected</span>
+            <span class="kpi-value">{{ result.total_defect_count }}</span>
+        </div>
+    </div>
+
+    <!-- Dual-View Inspection Window -->
+    <div class="inspection-dual-view">
+        <div class="image-box">
+            <div class="box-header">
+                <h3>📷 Original Garment Seam</h3>
+                <span class="badge badge-neutral">Input Reference</span>
+            </div>
+            <div class="image-frame">
+                <img src="{{ url_for('static', filename='uploads/' + original_filename) }}" alt="Original Seam">
+            </div>
+        </div>
+        <div class="image-box">
+            <div class="box-header">
+                <h3>🎯 StitchSense Defect Overlay</h3>
+                <span class="badge badge-accent">AI Segmentation</span>
+            </div>
+            <div class="image-frame">
+                <img src="{{ url_for('static', filename='uploads/' + result.overlay_filename) }}" alt="Defect Segmentation Overlay">
+            </div>
+        </div>
+    </div>
+
+    <!-- Tailoring Remediation & Action Guide -->
+    <div class="remediation-section">
+        <div class="section-title-bar">
+            <h2>🪡 Tailoring Repair & Machine Remediation Guide</h2>
+            {% if record %}
+            <a href="{{ url_for('download_ticket', record_id=record.id) }}" class="btn btn-outline">
+                📄 Download Alteration Ticket
+            </a>
+            {% endif %}
+        </div>
+
+        {% if result.is_passed %}
+        <div class="passed-banner">
+            <div class="banner-icon">✅</div>
+            <div class="banner-body">
+                <h3>Garment Passed Quality Inspection</h3>
+                <p>The stitch line exhibits uniform tension, proper lockstitch formation, and consistent seam allowance. No broken threads or fabric puckering detected. Garment is approved for client delivery.</p>
+            </div>
+        </div>
+        {% else %}
+        <div class="defect-reports-list">
+            {% for report in result.defect_reports %}
+            <div class="defect-card">
+                <div class="defect-card-header">
+                    <div class="defect-title-group">
+                        <span class="severity-indicator sev-{{ report.severity_rank }}"></span>
+                        <h3>{{ report.category }}</h3>
+                        <span class="badge badge-severity">{{ report.severity_label }}</span>
+                    </div>
+                    <span class="affected-area">Affected Area: <strong>{{ report.total_area_percent }}%</strong></span>
+                </div>
+
+                <div class="defect-card-body">
+                    <div class="diagnosis-column">
+                        <h4>🔍 Machine Diagnosis & Root Cause</h4>
+                        <p class="structural-impact"><strong>Impact:</strong> {{ report.impact }}</p>
+                        <ul class="root-causes">
+                            {% for cause in report.root_causes %}
+                            <li>{{ cause }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="action-column">
+                        <h4>🛠️ Step-by-Step Tailor Action Plan</h4>
+                        <ol class="action-steps">
+                            {% for step in report.action_steps %}
+                            <li>{{ step }}</li>
+                            {% endfor %}
+                        </ol>
+                        {% if report.preventive_tips %}
+                        <div class="tip-box">
+                            <strong>💡 Quality Assurance Tip:</strong> {{ report.preventive_tips }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

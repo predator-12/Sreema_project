@@ -1,0 +1,42 @@
+# =========================================================================
+# StitchSense .gitignore
+# Prevents large binaries, virtual environments, and caches from being tracked
+# =========================================================================
+
+# Python Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+*.env
+
+# Python Bytecode & Caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Local SQLite Database Files
+database/*.db
+*.sqlite
+*.sqlite3
+
+# Uploaded User / Test Images (keep folder structure via .gitkeep)
+static/uploads/*
+!static/uploads/.gitkeep
+
+# Large Deep Learning Weights & Checkpoints
+weights/*.pth
+weights/*.pt
+weights/*.onnx
+!weights/.gitkeep
+
+# Operating System & IDE Artifacts
+.vscode/
+.idea/
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*.log
+

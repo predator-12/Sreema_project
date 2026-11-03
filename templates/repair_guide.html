@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+
+{% block title %}Tailoring Repair Guide | StitchSense Encyclopedia{% endblock %}
+
+{% block content %}
+<section class="py-5" style="background: radial-gradient(circle at 10% 20%, #FAF4F0 0%, #FAF7F2 100%);">
+    <div class="container py-3 text-center">
+        <span class="hero-tag">Tailoring Knowledge Base</span>
+        <h1 class="display-5 fw-bold mb-3">Tailoring Repair Guide</h1>
+        <p class="text-secondary max-w-700 mx-auto">
+            An encyclopedia of sewing machine calibration, root-cause diagnosis, and step-by-step remediation methods for haute couture and home tailoring.
+        </p>
+
+        <!-- Quick Jump Links -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
+            <a href="#skipped-stitch" class="demo-chip">
+                <span class="chip-dot" style="background-color: #E63946;"></span> Skipped Stitches
+            </a>
+            <a href="#seam-puckering" class="demo-chip">
+                <span class="chip-dot" style="background-color: #F77F00;"></span> Seam Puckering
+            </a>
+            <a href="#open-seam" class="demo-chip">
+                <span class="chip-dot" style="background-color: #7209B7;"></span> Open Seams
+            </a>
+            <a href="#misaligned-seam" class="demo-chip">
+                <span class="chip-dot" style="background-color: #FCBF49;"></span> Wavy / Misaligned
+            </a>
+            <a href="#needle-cut" class="demo-chip">
+                <span class="chip-dot" style="background-color: #0077B6;"></span> Needle Cuts & Holes
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <!-- Defect 1: Skipped Stitches -->
+        <div class="atelier-card p-4 p-md-5 mb-5 shadow-sm" id="skipped-stitch">
+            <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="chip-dot" style="background-color: #E63946; width: 14px; height: 14px;"></span>
+                <h2 class="font-serif fw-bold mb-0">1. Broken & Skipped Stitches</h2>
+                <span class="badge bg-danger bg-opacity-10 text-danger border border-danger-subtle rounded-pill px-3 py-1">Class 1</span>
+            </div>
+            <p class="text-secondary mb-4">
+                Intermittent gaps along the seam where upper and bobbin threads fail to interlock, leaving unstitched loops or empty needle penetration holes.
+            </p>
+
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded-4 h-100 border">
+                        <h6 class="fw-bold text-dark mb-2">🔍 Mechanical Root Causes</h6>
+                        <ul class="small text-secondary ps-3 mb-0">
+                            <li class="mb-1">Needle is blunt, slightly hooked at the tip, or inserted backwards (flat side wrong direction).</li>
+                            <li class="mb-1">Using a universal needle instead of a ballpoint/stretch needle on elasticized knits.</li>
+                            <li class="mb-1">Upper thread tension too high or snagging on thread spool rim notch.</li>
+                            <li class="mb-1">Shuttle hook timing slightly delayed relative to needle rise.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded-4 h-100 border">
+                        <h6 class="fw-bold text-dark mb-2">⚙️ Recommended Machine Setup</h6>
+                        <ul class="small text-secondary ps-3 mb-0">
+                            <li class="mb-1"><strong>Needle Type:</strong> Ballpoint/Jersey #75/11 for stretch; Microtex for fine wovens.</li>
+                            <li class="mb-1"><strong>Tension Setting:</strong> Dial between 3.5 and 4.2 for standard lockstitch.</li>
+                            <li class="mb-1"><strong>Thread:</strong> 100% long-staple polyester thread (#50 weight).</li>
+                            <li class="mb-1"><strong>Orientation:</strong> Ensure flat shank faces away from needle clamp screw.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-top pt-3">
+                <h6 class="fw-bold text-dark mb-2">🛠️ Step-by-Step Remediation Plan</h6>
+                <ol class="small text-secondary ps-3 mb-3">
+                    <li class="mb-1">Stop sewing immediately and unpick the skipped region using an ergonomic seam ripper.</li>
+                    <li class="mb-1">Discard the needle and install a brand new needle appropriate for your fabric structure.</li>
+                    <li class="mb-1">Re-thread the top machine path with the presser foot raised to engage tension discs properly.</li>
+                    <li class="mb-1">Overlap the new stitchline by 0.5 inches over the undamaged seam and secure with 2-3 reverse lockstitches.</li>
+                </ol>
+                <div class="p-3 rounded-3" style="background-color: var(--nude-light); border-left: 4px solid var(--nude-primary);">
+                    <small class="text-dark"><strong>💡 Quality Tip:</strong> Always replace sewing machine needles after 8–10 hours of active stitching or when starting a new luxury client garment.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Defect 2: Seam Puckering -->
+        <div class="atelier-card p-4 p-md-5 mb-5 shadow-sm" id="seam-puckering">
+            <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="chip-dot" style="background-color: #F77F00; width: 14px; height: 14px;"></span>
+                <h2 class="font-serif fw-bold mb-0">2. Seam Puckering & Fabric Gathering</h2>
+                <span class="badge bg-warning bg-opacity-10 text-warning border border-warning-subtle rounded-pill px-3 py-1">Class 2</span>
+            </div>
+            <p class="text-secondary mb-4">
+                Wrinkles or ripples radiating outward from the stitch line, causing seams to buckle instead of laying flat against the body.
+            </p>
+
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded-4 h-100 border">
+                        <h6 class="fw-bold text-dark mb-2">🔍 Mechanical Root Causes</h6>
+                        <ul class="small text-secondary ps-3 mb-0">
+                            <li class="mb-1">Upper thread tension set excessively tight compared to bobbin case tension.</li>
+                            <li class="mb-1">Needle gauge too thick, displacing weave yarns and forcing fabric displacement.</li>
+                            <li class="mb-1">Differential feeding: Feed dogs pull the bottom ply faster than top ply feeds.</li>
+                            <li class="mb-1">Stitch length set too short (e.g. 1.5mm), overcrowding needle perforations.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded-4 h-100 border">
+                        <h6 class="fw-bold text-dark mb-2">⚙️ Recommended Machine Setup</h6>
+                        <ul class="small text-secondary ps-3 mb-0">
+                            <li class="mb-1"><strong>Tension Adjustment:</strong> Loosen upper tension dial by 1.0–1.5 steps (from 4 down to 2.5–3).</li>
+                            <li class="mb-1"><strong>Stitch Length:</strong> Increase length from 2.0mm to 2.5mm or 3.0mm.</li>
+                            <li class="mb-1"><strong>Needle Size:</strong> Fine gauge #65/9 or #70/10 Microtex needle.</li>
+                            <li class="mb-1"><strong>Stabilizer:</strong> Tear-away or water-soluble stabilizer beneath seam.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-top pt-3">
+                <h6 class="fw-bold text-dark mb-2">🛠️ Step-by-Step Remediation Plan</h6>
+                <ol class="small text-secondary ps-3 mb-3">
+                    <li class="mb-1">Press the seam with a steam iron and tailor's ham using a damp press cloth to check if ripples relax.</li>
+                    <li class="mb-1">If puckering persists, unpick the seam completely and reduce upper tension dial by 1.5 units.</li>
+                    <li class="mb-1">Attach a walking foot (even-feed foot) to transport top and bottom fabric plies synchronously.</li>
+                    <li class="mb-1">Re-stitch smoothly without tugging or retarding the fabric feed.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Defect 3: Open Seam -->
+        <div class="atelier-card p-4 p-md-5 mb-5 shadow-sm" id="open-seam">
+            <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="chip-dot" style="background-color: #7209B7; width: 14px; height: 14px;"></span>
+                <h2 class="font-serif fw-bold mb-0">3. Open Seam & Thread Unraveling</h2>
+                <span class="badge rounded-pill px-3 py-1 border" style="background-color: #F3E8FF; color: #7209B7; border-color: #D8B4FE;">Class 3</span>
+            </div>
+            <p class="text-secondary mb-4">
+                A gap or separation between joined fabric plies exposing raw inner seam allowances or interior linings.
+            </p>
+
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded-4 h-100 border">
+                        <h6 class="fw-bold text-dark mb-2">🔍 Mechanical Root Causes</h6>
+                        <ul class="small text-secondary ps-3 mb-0">
+                            <li class="mb-1">Omission of reverse lockstitches (backtacking) at seam beginning and endings.</li>
+                            <li class="mb-1">Using deteriorated, brittle, or incorrect weight basting thread in structural joints.</li>
+                            <li class="mb-1">Inadequate seam allowance (cut too narrow, causing weave yarns to fray out).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded-4 h-100 border">
+                        <h6 class="fw-bold text-dark mb-2">🛠️ Step-by-Step Remediation Plan</h6>
+                        <ol class="small text-secondary ps-3 mb-0">
+                            <li class="mb-1">Turn garment inside out and trim loose threads without cutting into good stitches.</li>
+                            <li class="mb-1">Pin panels together, aligning notches and matching the grainline.</li>
+                            <li class="mb-1">Begin stitching 1 inch before the separation and continue 1 inch past the opening.</li>
+                            <li class="mb-1">Execute 3–4 firm backstitches at both start and finish to lock thread tails permanently.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Defect 4: Misaligned Seam -->
+        <div class="atelier-card p-4 p-md-5 mb-5 shadow-sm" id="misaligned-seam">
+            <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="chip-dot" style="background-color: #FCBF49; width: 14px; height: 14px;"></span>
+                <h2 class="font-serif fw-bold mb-0">4. Misaligned & Wavy Seam</h2>
+                <span class="badge bg-warning bg-opacity-10 text-dark border border-warning-subtle rounded-pill px-3 py-1">Class 4</span>
+            </div>
+            <p class="text-secondary mb-4">
+                Crooked, wandering stitchlines that deviate from the calibrated seam allowance, causing uneven drape or asymmetric collar points.
+            </p>
+
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded-4 h-100 border">
+                        <h6 class="fw-bold text-dark mb-2">🔍 Mechanical & Operator Causes</h6>
+                        <ul class="small text-secondary ps-3 mb-0">
+                            <li class="mb-1">Operator manually pushing or pulling fabric instead of allowing feed dogs to transport it.</li>
+                            <li class="mb-1">Lack of seam allowance guides or failing to watch needle plate markers.</li>
+                            <li class="mb-1">Sewing at excessive speeds on tight curves or slippery synthetic fabrics.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded-4 h-100 border">
+                        <h6 class="fw-bold text-dark mb-2">🛠️ Step-by-Step Remediation Plan</h6>
+                        <ol class="small text-secondary ps-3 mb-0">
+                            <li class="mb-1">For exterior topstitching, unpick wavy sections with a fine seam ripper.</li>
+                            <li class="mb-1">Attach a magnetic seam guide or apply low-tack colored tape at the 5/8" plate line.</li>
+                            <li class="mb-1">Reduce machine speed limiter to medium-low setting.</li>
+                            <li class="mb-1">Keep eyes focused on the edge of the fabric against the guide rather than looking at the needle.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Defect 5: Needle Cut -->
+        <div class="atelier-card p-4 p-md-5 mb-5 shadow-sm" id="needle-cut">
+            <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="chip-dot" style="background-color: #0077B6; width: 14px; height: 14px;"></span>
+                <h2 class="font-serif fw-bold mb-0">5. Needle Cut & Chewed Fabric Holes</h2>
+                <span class="badge rounded-pill px-3 py-1 border" style="background-color: #E0F2FE; color: #0077B6; border-color: #BAE6FD;">Class 5</span>
+            </div>
+            <p class="text-secondary mb-4">
+                Punctures, cuts, or sheared yarns along the seamline caused when the needle tip cuts fabric fibers rather than gliding between them.
+            </p>
+
+            <div class="row g-4 mb-4">
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded-4 h-100 border">
+                        <h6 class="fw-bold text-dark mb-2">🔍 Mechanical Root Causes</h6>
+                        <ul class="small text-secondary ps-3 mb-0">
+                            <li class="mb-1">Using a needle with a microscopic burr caused by previous contact with pins or needle plate.</li>
+                            <li class="mb-1">Using a cutting point needle (intended for leather) on delicate woven or knit fabrics.</li>
+                            <li class="mb-1">Needle plate hole has rough metal burrs chewing yarns during needle retraction.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded-4 h-100 border">
+                        <h6 class="fw-bold text-dark mb-2">🛠️ Step-by-Step Remediation Plan</h6>
+                        <ol class="small text-secondary ps-3 mb-0">
+                            <li class="mb-1">Immediately discard and replace the damaged needle with a ballpoint or microtex needle.</li>
+                            <li class="mb-1">Buff needle plate hole smooth using fine emery cord if metal burrs are present.</li>
+                            <li class="mb-1">Apply a narrow strip of lightweight fusible knit interfacing to the reverse side to stabilize yarn cuts.</li>
+                            <li class="mb-1">Re-stitch 1/8 inch further into the seam allowance to anchor stitches into fresh fabric weave.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

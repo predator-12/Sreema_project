@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Garment | StitchSense Inspection Studio{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <!-- Header -->
+        <div class="text-center max-w-700 mx-auto mb-5">
+            <span class="hero-tag">Defect Inspection Studio</span>
+            <h1 class="display-6 fw-bold mb-3">Upload Garment Seam</h1>
+            <p class="text-secondary">
+                Upload a clear close-up photograph of the questionable seam line to evaluate stitch formation, identify defect classes, and receive tailor repair guidance.
+            </p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Main Upload Studio Card -->
+                <div class="atelier-card p-4 p-md-5 mb-5 shadow-sm">
+                    <form action="{{ url_for('analyze') }}" method="POST" enctype="multipart/form-data" id="upload-form">
+                        <div class="upload-studio-card mb-4" id="dropzone">
+                            <input type="file" name="garment_image" id="file-input" accept=".jpg,.jpeg,.png,.webp" class="file-input-hidden">
+                            
+                            <!-- Prompt Box -->
+                            <div id="dropzone-prompt">
+                                <div class="upload-icon-circle">
+                                    <i class="bi bi-cloud-arrow-up"></i>
+                                </div>
+                                <h4 class="font-serif fw-bold mb-2">Drag & Drop Garment Photo Here</h4>
+                                <p class="text-secondary mb-2">or <span class="text-decoration-underline fw-bold" style="color: var(--nude-dark);">Browse From Your Device</span></p>
+                                <span class="badge bg-light text-muted border">Supported: JPG, PNG, WEBP &bull; Max: 16 MB</span>
+                            </div>
+
+                            <!-- Image Preview Box -->
+                            <div class="preview-container d-none" id="file-preview-box">
+                                <img id="preview-img" src="" alt="Seam Preview" class="img-fluid mb-3">
+                                <div class="d-flex justify-content-between align-items-center bg-light p-2 rounded-3 border">
+                                    <small id="preview-filename" class="text-truncate fw-bold text-dark px-2"></small>
+                                    <button type="button" class="btn btn-sm btn-outline-danger" id="btn-remove-file">
+                                        <i class="bi bi-trash3"></i> Change
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button with Spinner -->
+                        <button type="submit" class="btn btn-nude w-100 btn-lg shadow-sm" id="btn-submit" disabled>
+                            <span class="btn-text d-inline-flex align-items-center gap-2">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                                <span>Begin Seam Inspection</span>
+                            </span>
+                            <span class="spinner-border spinner-border-sm d-none ms-2" id="spinner" role="status" aria-hidden="true"></span>
+                        </button>
+                    </form>
+
+                    <!-- Pre-loaded Samples Quick Selection -->
+                    <div class="mt-5 pt-4 border-top">
+                        <div class="text-center mb-3">
+                            <span class="text-muted small fw-bold text-uppercase">Or evaluate pre-loaded boutique samples:</span>
+                        </div>
+                        <div class="d-flex flex-wrap justify-content-center gap-2">
+                            <a href="{{ url_for('demo', defect_type='skipped_stitch') }}" class="demo-chip">
+                                <span class="chip-dot" style="background-color: #E63946;"></span> Skipped Stitch
+                            </a>
+                            <a href="{{ url_for('demo', defect_type='seam_puckering') }}" class="demo-chip">
+                                <span class="chip-dot" style="background-color: #F77F00;"></span> Puckering
+                            </a>
+                            <a href="{{ url_for('demo', defect_type='open_seam') }}" class="demo-chip">
+                                <span class="chip-dot" style="background-color: #7209B7;"></span> Open Seam
+                            </a>
+                            <a href="{{ url_for('demo', defect_type='misaligned_seam') }}" class="demo-chip">
+                                <span class="chip-dot" style="background-color: #FCBF49;"></span> Wavy Seam
+                            </a>
+                            <a href="{{ url_for('demo', defect_type='needle_cut') }}" class="demo-chip">
+                                <span class="chip-dot" style="background-color: #0077B6;"></span> Needle Cut
+                            </a>
+                            <a href="{{ url_for('demo', defect_type='normal_seam') }}" class="demo-chip">
+                                <span class="chip-dot" style="background-color: #2A9D8F;"></span> Clean Seam
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tailor Photography Guidelines -->
+                <div class="atelier-card p-4 bg-white">
+                    <h5 class="font-serif fw-bold mb-3 d-flex align-items-center gap-2">
+                        <i class="bi bi-lightbulb text-warning"></i>
+                        <span>Tailor Photography Best Practices</span>
+                    </h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="d-flex gap-2">
+                                <i class="bi bi-check2-circle text-success fs-5"></i>
+                                <small class="text-secondary"><strong>Diffuse Lighting:</strong> Avoid heavy direct flash. Natural daylight or balanced workshop desk lamps yield highest segmentation contrast.</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex gap-2">
+                                <i class="bi bi-check2-circle text-success fs-5"></i>
+                                <small class="text-secondary"><strong>Flat Surface:</strong> Lay the garment panel flat on the cutting table without stretching or distorting the seamline.</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex gap-2">
+                                <i class="bi bi-check2-circle text-success fs-5"></i>
+                                <small class="text-secondary"><strong>Macro Close-up:</strong> Position smartphone camera 10–20 cm directly perpendicular to the questionable stitches.</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex gap-2">
+                                <i class="bi bi-check2-circle text-success fs-5"></i>
+                                <small class="text-secondary"><strong>Center The Seam:</strong> Keep the seam running vertically or horizontally across the inspection frame.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

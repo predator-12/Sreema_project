@@ -1,0 +1,26 @@
+# =========================================================================
+# StitchSense - Dependency Manifest
+# Optimized for Windows 11 / Python 3.12.5 / Intel Iris Xe CPU
+# =========================================================================
+
+# Flask Web Framework & WSGI
+Flask>=3.0.0
+Werkzeug>=3.0.0
+Jinja2>=3.1.2
+
+# Image Processing & Geometry
+Pillow>=10.2.0
+numpy>=1.26.0
+opencv-python-headless>=4.9.0
+albumentations>=1.4.0
+
+# PyTorch CPU Deep Learning & Segmentation Models
+# Recommended install: pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+torch>=2.2.0
+torchvision>=0.17.0
+segmentation-models-pytorch>=0.3.3
+timm>=0.9.12
+
+# Configuration & Utilities
+pyyaml>=6.0.1
+tqdm>=4.66.0

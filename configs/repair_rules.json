@@ -1,0 +1,203 @@
+{
+  "system_info": {
+    "module": "StitchSense Tailoring Remediation Engine",
+    "target_users": ["Home Tailors", "Boutique Owners", "Garment Quality Checkers"],
+    "version": "1.0"
+  },
+  "defects": {
+    "1": {
+      "id": 1,
+      "category": "Broken / Skipped Stitch",
+      "short_name": "Skipped Stitch",
+      "description": "Intermittent gaps where the upper thread fails to interlock with the bobbin thread, leaving missed stitches or broken thread segments.",
+      "visual_sign": "Thread line has missing loops or gaps with visible holes where needle penetrated without locking.",
+      "severity_levels": {
+        "minor": {
+          "threshold_percent": 2.0,
+          "label": "Low Severity (Isolated Skip)",
+          "impact": "Cosmetic imperfection, slight risk of unraveling over repeated wash cycles."
+        },
+        "moderate": {
+          "threshold_percent": 8.0,
+          "label": "Moderate Severity (Multiple Skips)",
+          "impact": "Structural weakness along the seam. Joint may separate under tension."
+        },
+        "severe": {
+          "threshold_percent": 100.0,
+          "label": "High Severity (Continuous Breakage)",
+          "impact": "Seam failure. Garment cannot be sold or delivered to client."
+        }
+      },
+      "root_causes": [
+        "Needle is blunt, slightly bent, or inserted backwards (flat side in wrong direction).",
+        "Mismatch between fabric type and needle point (e.g. using a universal needle instead of ballpoint on jersey knit).",
+        "Upper thread tension too high or thread path snagging on spool notch.",
+        "Incorrect threading of tension disks or take-up lever.",
+        "Bobbin case timing out of sync with needle descent."
+      ],
+      "tailor_actions": [
+        "1. Stop sewing and unthread the defective section using an ergonomic seam ripper.",
+        "2. Replace the needle immediately. For knit/spandex fabrics, insert a 75/11 or 80/12 Ballpoint/Stretch needle. For medium cottons, use a fresh 80/12 Universal needle.",
+        "3. Verify needle orientation: Ensure the flat side of the shank faces the back (or toward the direction specified by your machine brand).",
+        "4. Re-thread the upper thread with presser foot UP to ensure thread seats completely into the tension disks.",
+        "5. Overlap the new stitch line by 0.5 inches over the existing good seam and secure with 2-3 reverse lockstitches."
+      ],
+      "preventive_tips": "Change sewing machine needles after every 8-10 hours of active sewing or at the start of every new boutique garment."
+    },
+    "2": {
+      "id": 2,
+      "category": "Seam Puckering",
+      "short_name": "Puckering",
+      "description": "Gathering, bunching, or rippling of fabric directly along the stitch line, causing the seam to ripple instead of laying flat.",
+      "visual_sign": "Wrinkles radiating outwards from the stitch line, wavy uneven edges.",
+      "severity_levels": {
+        "minor": {
+          "threshold_percent": 4.0,
+          "label": "Minor Wrinkling",
+          "impact": "Can often be pressed out with a steam iron and tailor's ham."
+        },
+        "moderate": {
+          "threshold_percent": 12.0,
+          "label": "Noticeable Gathering",
+          "impact": "Visible ripples; iron pressing alone is insufficient. Requires tension adjustment."
+        },
+        "severe": {
+          "threshold_percent": 100.0,
+          "label": "Severe Seam Puckering",
+          "impact": "Garment distortion; sleeves or side seams pull unevenly."
+        }
+      },
+      "root_causes": [
+        "Upper thread tension is set too high relative to bobbin tension.",
+        "Needle size is too thick for delicate or lightweight fabric (e.g., chiffon, georgette, silk).",
+        "Differential feeding: The machine feed dogs pull the bottom ply faster than the presser foot feeds the top ply.",
+        "Stitch length is set too short, causing too many needle penetrations per inch.",
+        "Sewing across bias without proper seam stabilization."
+      ],
+      "tailor_actions": [
+        "1. Loosen the upper thread tension dial by 1.0 to 1.5 units (e.g., dial down from 4 to 2.5 or 3).",
+        "2. Increase stitch length slightly (e.g., from 2.0mm to 2.5mm or 3.0mm) to reduce fabric displacement.",
+        "3. Switch to a finer needle size (65/9 or 70/10 Microtex/Sharp needle for delicate silks and synthetics).",
+        "4. Place a strip of lightweight tear-away stabilizer or tissue paper beneath the seam while sewing to prevent feed dog bunching.",
+        "5. If present on existing garment, steam press with a damp pressing cloth. If ripples remain, unpick and re-stitch with corrected tension."
+      ],
+      "preventive_tips": "Always run a 6-inch test seam on identical scrap fabric of the same grainline before sewing the main garment panels."
+    },
+    "3": {
+      "id": 3,
+      "category": "Open Seam",
+      "short_name": "Open Seam",
+      "description": "A separation or gaping hole between two stitched fabric panels where the seam has pulled apart or thread has unraveled.",
+      "visual_sign": "Visible opening exposing raw edge allowances or interior garment lining.",
+      "severity_levels": {
+        "minor": {
+          "threshold_percent": 3.0,
+          "label": "Minor Gap (< 1 inch)",
+          "impact": "Early stage failure; can be easily reinforced without restitching entire seam."
+        },
+        "moderate": {
+          "threshold_percent": 10.0,
+          "label": "Moderate Gap (1 - 3 inches)",
+          "impact": "Significant structural opening; skin or underlayer exposed."
+        },
+        "severe": {
+          "threshold_percent": 100.0,
+          "label": "Major Seam Separation (> 3 inches)",
+          "impact": "Critical joint failure requiring full disassembly and reinforcement."
+        }
+      },
+      "root_causes": [
+        "Lack of proper backtacking (reverse stitching) at seam beginnings and terminations.",
+        "Weak, deteriorated, or incorrect weight thread (e.g. basting thread left in structural seam).",
+        "Insufficient seam allowance (cut too close to stitch line, causing weave fraying).",
+        "Excessive stress or tight fitting on garment seams."
+      ],
+      "tailor_actions": [
+        "1. Turn garment inside out and inspect the remaining seam allowance for fraying.",
+        "2. Trim loose, frayed threads neatly without cutting into the seam line.",
+        "3. Pin the open seam carefully, matching notches and grainline exactly.",
+        "4. Re-sew the seam starting 1 inch before the break, stitch through the open area, and continue 1 inch past the opening.",
+        "5. Perform a secure reverse backstitch (3-4 stitches) at both beginning and end.",
+        "6. If seam allowance is fraying, finish raw edges with an overlock (serger) stitch or zigzag stitch."
+      ],
+      "preventive_tips": "Reinforce high-stress points (crotch seams, armholes, pocket corners) with a double stitch line or bartack."
+    },
+    "4": {
+      "id": 4,
+      "category": "Misaligned Seam",
+      "short_name": "Misaligned Seam",
+      "description": "Crooked, meandering, or off-parallel stitching that departs from the intended seam allowance line.",
+      "visual_sign": "Wavy stitch line, uneven margin from the fabric edge, mismatch at seam intersections.",
+      "severity_levels": {
+        "minor": {
+          "threshold_percent": 5.0,
+          "label": "Slight Drift (< 2mm)",
+          "impact": "Minor aesthetic variance, usually concealed in inner linings."
+        },
+        "moderate": {
+          "threshold_percent": 15.0,
+          "label": "Moderate Wavering (2 - 5mm)",
+          "impact": "Visible asymmetry on collars, cuffs, hems, or exterior topstitching."
+        },
+        "severe": {
+          "threshold_percent": 100.0,
+          "label": "Severe Misalignment (> 5mm)",
+          "impact": "Alters garment fit and creates crooked drape on finished pieces."
+        }
+      },
+      "root_causes": [
+        "Operator pulling or pushing fabric by hand instead of letting feed dogs transport it evenly.",
+        "Absence of seam guides or failure to watch the needle plate guideline.",
+        "Sewing at an excessively high speed without consistent fabric control.",
+        "Uneven pinning or fabric shifting between top and bottom plies."
+      ],
+      "tailor_actions": [
+        "1. For exterior or visible topstitching, unpick the wavy segment with a fine seam ripper.",
+        "2. Use a tailor's chalk pencil and ruler to draw a crisp guide line on the fabric.",
+        "3. Attach a magnetic seam guide or place a strip of low-tack colored masking tape at the desired seam allowance (e.g. 1/2\" or 5/8\").",
+        "4. Reduce sewing machine speed by setting speed limiter to medium-low.",
+        "5. Keep eyes focused on the edge of the fabric against the seam guide rather than staring directly at the bouncing needle."
+      ],
+      "preventive_tips": "Use walking foot (even feed foot) when stitching multiple layers or slippery fabrics like satin and rayon."
+    },
+    "5": {
+      "id": 5,
+      "category": "Needle Cut / Fabric Hole",
+      "short_name": "Needle Cut",
+      "description": "Punctures, cuts, or chewed yarns along the seam where the needle point severed fabric yarns rather than sliding between them.",
+      "visual_sign": "Small pierced holes, ladders/runs in knit fabrics, frayed yarn cuts along stitch line.",
+      "severity_levels": {
+        "minor": {
+          "threshold_percent": 2.0,
+          "label": "Isolated Needle Holes",
+          "impact": "Small pinholes; fabric may recover with steam pressing or light fusible webbing."
+        },
+        "moderate": {
+          "threshold_percent": 8.0,
+          "label": "Multiple Yarn Cuts",
+          "impact": "Runs/ladders forming in knit loops, risk of tear expansion."
+        },
+        "severe": {
+          "threshold_percent": 100.0,
+          "label": "Severe Chewed Seam",
+          "impact": "Fabric disintegrating along seamline; requires structural patch or re-cutting."
+        }
+      },
+      "root_causes": [
+        "Using a burred, nicked, or dull needle tip that pierces and cuts warp/weft fibers.",
+        "Using a cutting-point needle (designed for leather) on woven or knit fabrics.",
+        "Sewing over pins and striking metal, causing microscopic needle hook damage.",
+        "Needle plate hole has burrs from previous needle strikes."
+      ],
+      "tailor_actions": [
+        "1. Discard the defective needle immediately to prevent further damage.",
+        "2. Check needle plate and bobbin hook for rough burrs; buff smooth with fine crocus cloth if needed.",
+        "3. For knits, switch to a Ballpoint (SES) or Stretch needle that parts knit loops gently.",
+        "4. For delicate wovens, apply a small strip of lightweight fusible knit interfacing (iron-on) to the reverse side to stabilize yarn cuts.",
+        "5. Re-stitch slightly outside the damaged line (increase seam allowance by 1/8\") to anchor stitches into undamaged fabric weave."
+      ],
+      "preventive_tips": "Never sew directly over pins. Remove each pin just before it reaches the presser foot."
+    }
+  }
+}
+

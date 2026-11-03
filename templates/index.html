@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+
+{% block title %}StitchSense | AI Sewing Defect Detection & Repair Assistant{% endblock %}
+
+{% block content %}
+<!-- =========================================================================
+     Hero Section
+     ========================================================================= -->
+<section class="hero-wrapper">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-7">
+                <div class="hero-tag">
+                    <i class="bi bi-stars"></i>
+                    <span>Haute Couture Quality Intelligence</span>
+                </div>
+                <h1 class="hero-title">Elevate Boutique Craftsmanship with AI Precision.</h1>
+                <p class="hero-subtitle">
+                    StitchSense scans garment seams to pinpoint microscopic stitch anomalies, measure seam puckering, and generate step-by-step mechanical repair instructions tailored for home tailors and boutique owners.
+                </p>
+                <div class="d-flex flex-wrap gap-3 mb-4">
+                    <a href="{{ url_for('upload_page') }}" class="btn btn-nude btn-lg d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-camera fs-5"></i>
+                        <span>Inspect Garment Seam</span>
+                    </a>
+                    <a href="{{ url_for('repair_guide') }}" class="btn btn-nude-outline btn-lg d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-journal-text fs-5"></i>
+                        <span>Explore Repair Guide</span>
+                    </a>
+                </div>
+
+                <!-- Live Defect Chips for instant demo -->
+                <div class="mt-4 pt-2">
+                    <span class="text-muted small fw-bold text-uppercase d-block mb-2">Or test live with boutique samples:</span>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="{{ url_for('demo', defect_type='skipped_stitch') }}" class="demo-chip">
+                            <span class="chip-dot" style="background-color: #E63946;"></span> Skipped Stitch
+                        </a>
+                        <a href="{{ url_for('demo', defect_type='seam_puckering') }}" class="demo-chip">
+                            <span class="chip-dot" style="background-color: #F77F00;"></span> Puckering
+                        </a>
+                        <a href="{{ url_for('demo', defect_type='open_seam') }}" class="demo-chip">
+                            <span class="chip-dot" style="background-color: #7209B7;"></span> Open Seam
+                        </a>
+                        <a href="{{ url_for('demo', defect_type='misaligned_seam') }}" class="demo-chip">
+                            <span class="chip-dot" style="background-color: #FCBF49;"></span> Wavy Seam
+                        </a>
+                        <a href="{{ url_for('demo', defect_type='needle_cut') }}" class="demo-chip">
+                            <span class="chip-dot" style="background-color: #0077B6;"></span> Needle Cut
+                        </a>
+                        <a href="{{ url_for('demo', defect_type='normal_seam') }}" class="demo-chip">
+                            <span class="chip-dot" style="background-color: #2A9D8F;"></span> Clean Seam
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="position-relative">
+                    <div class="atelier-card p-4 shadow-lg text-center">
+                        <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                            <span class="badge bg-light text-dark fw-bold border">Interactive Inspection Preview</span>
+                            <span class="status-pill-pass small">Model Ready (CPU)</span>
+                        </div>
+                        <img src="{{ url_for('static', filename='uploads/sample_demo_skipped_stitch.jpg') }}" 
+                             onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=600&q=80'" 
+                             alt="Seam Inspection Sample" 
+                             class="img-fluid rounded-4 shadow-sm mb-3" style="max-height: 280px; width: 100%; object-fit: cover;">
+                        <div class="d-flex justify-content-between align-items-center text-start">
+                            <div>
+                                <h6 class="fw-bold mb-0 text-dark">Lockstitch Seam Analysis</h6>
+                                <small class="text-muted">Resolution: 512×512 | SMP U-Net MobileNetV2</small>
+                            </div>
+                            <a href="{{ url_for('upload_page') }}" class="btn btn-sm btn-nude">Analyze</a>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge -->
+                    <div class="hero-seam-badge position-absolute bottom-0 start-0 translate-middle-x d-none d-md-flex">
+                        <i class="bi bi-patch-check-fill text-success fs-3"></i>
+                        <div>
+                            <div class="fw-bold text-dark small">Pixel-Level Accuracy</div>
+                            <div class="text-muted small">Trained for delicate silks to heavy denim</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================================
+     How It Works Section
+     ========================================================================= -->
+<section class="py-5 my-3">
+    <div class="container py-4">
+        <div class="text-center max-w-700 mx-auto mb-5">
+            <span class="brand-badge mb-2">Simplicity & Speed</span>
+            <h2 class="display-6 fw-bold">How StitchSense Works</h2>
+            <p class="text-secondary">Transforming close-up fabric photos into precise tailoring alteration orders in under 3 seconds.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="atelier-card p-4 h-100 text-center">
+                    <div class="upload-icon-circle">
+                        <i class="bi bi-camera"></i>
+                    </div>
+                    <h4 class="font-serif fw-bold mb-2">1. Capture Seam</h4>
+                    <p class="text-secondary small mb-0">
+                        Take a clear close-up photograph of the questionable seam using any smartphone or boutique camera under steady lighting.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="atelier-card p-4 h-100 text-center">
+                    <div class="upload-icon-circle">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+                    <h4 class="font-serif fw-bold mb-2">2. Neural Segmentation</h4>
+                    <p class="text-secondary small mb-0">
+                        Our lightweight SMP U-Net evaluates the stitch structure, isolates skipped loops, tension ripples, and fabric holes at pixel precision.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="atelier-card p-4 h-100 text-center">
+                    <div class="upload-icon-circle">
+                        <i class="bi bi-tools"></i>
+                    </div>
+                    <h4 class="font-serif fw-bold mb-2">3. Machine Remediation</h4>
+                    <p class="text-secondary small mb-0">
+                        Receive exact mechanical guidance: upper tension adjustments, needle point switch, presser foot calibration, and printable work tickets.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================================
+     Features Grid Section
+     ========================================================================= -->
+<section class="py-5 bg-white border-top border-bottom border-light-subtle">
+    <div class="container py-4">
+        <div class="text-center max-w-700 mx-auto mb-5">
+            <span class="brand-badge mb-2">Advanced Capabilities</span>
+            <h2 class="display-6 fw-bold">Engineered for Garment Quality Assurance</h2>
+            <p class="text-secondary">Bridging computer vision algorithms with everyday sewing machine mechanics.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="atelier-card p-4 h-100">
+                    <div class="fs-1 text-danger mb-3">🎯</div>
+                    <h5 class="fw-bold mb-2">Pixel-Level Boundaries</h5>
+                    <p class="text-secondary small mb-0">
+                        Unlike coarse bounding boxes, our semantic segmentation masks exact thread trajectories and fabric puckers down to individual pixels.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="atelier-card p-4 h-100">
+                    <div class="fs-1 text-warning mb-3">⚙️</div>
+                    <h5 class="fw-bold mb-2">Tailoring Root Causes</h5>
+                    <p class="text-secondary small mb-0">
+                        Diagnostics map symptoms directly to bobbin shuttle timing, needle burrs, thread tension dials, and feed dog traction issues.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="atelier-card p-4 h-100">
+                    <div class="fs-1 text-primary mb-3">💻</div>
+                    <h5 class="fw-bold mb-2">CPU Fast Execution</h5>
+                    <p class="text-secondary small mb-0">
+                        Optimized with MobileNetV2 depthwise separable convolutions to run in under 80ms on standard Intel Iris Xe laptops without external GPUs.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="atelier-card p-4 h-100">
+                    <div class="fs-1 text-success mb-3">📄</div>
+                    <h5 class="fw-bold mb-2">Alteration Work Orders</h5>
+                    <p class="text-secondary small mb-0">
+                        Instantly generate downloadable and printable alteration tickets with defect severity metrics and tailor instructions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================================
+     CTA Callout Banner
+     ========================================================================= -->
+<section class="py-5 text-center">
+    <div class="container py-4">
+        <div class="atelier-card p-5 max-w-800 mx-auto" style="background: radial-gradient(circle at center, #FFFDF9 0%, #FAF4F0 100%);">
+            <h2 class="display-6 fw-bold mb-3">Ready to Inspect Your First Garment?</h2>
+            <p class="text-secondary mb-4">Upload a seam close-up or explore our pre-loaded boutique test library.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{{ url_for('upload_page') }}" class="btn btn-nude btn-lg">Launch Upload Studio</a>
+                <a href="{{ url_for('history') }}" class="btn btn-nude-outline btn-lg">View Past Audits</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

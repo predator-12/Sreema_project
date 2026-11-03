@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}413 - File Too Large | StitchSense{% endblock %}
+{% block content %}
+<div class="error-page">
+    <div class="error-code">413</div>
+    <h2>Uploaded File Exceeds Allowed Limit</h2>
+    <p>The garment image exceeds the 16 MB maximum upload limit. Please downsample or compress your photo before uploading.</p>
+    <a href="{{ url_for('index') }}" class="btn btn-primary">Try Another Photo</a>
+</div>
+{% endblock %}
+

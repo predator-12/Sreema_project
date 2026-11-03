@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}Contact & Academic Consultation | StitchSense{% endblock %}
+
+{% block content %}
+<section class="py-5" style="background: radial-gradient(circle at 10% 20%, #FAF4F0 0%, #FAF7F2 100%);">
+    <div class="container py-3 text-center">
+        <span class="hero-tag">Get In Touch</span>
+        <h1 class="display-5 fw-bold mb-3">Contact & Consultation</h1>
+        <p class="text-secondary max-w-700 mx-auto">
+            Connect with the StitchSense project team for boutique inquiries, tailoring feedback, or academic defense questions.
+        </p>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Contact Form -->
+            <div class="col-lg-7">
+                <div class="atelier-card p-4 p-md-5 shadow-sm">
+                    <h3 class="font-serif fw-bold mb-2">Send an Inquiry or Feedback</h3>
+                    <p class="text-secondary small mb-4">Have questions about tailoring machine calibrations or computer vision accuracy? Send us a note below.</p>
+
+                    <form action="{{ url_for('contact') }}" method="POST">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label small fw-bold text-dark">Your Name</label>
+                                <input type="text" class="form-control rounded-pill p-2 px-3 border" id="name" name="name" placeholder="Boutique Owner / Tailor" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label small fw-bold text-dark">Email Address</label>
+                                <input type="email" class="form-control rounded-pill p-2 px-3 border" id="email" name="email" placeholder="name@boutique.com" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="organization" class="form-label small fw-bold text-dark">Boutique / Institution Name</label>
+                                <input type="text" class="form-control rounded-pill p-2 px-3 border" id="organization" name="organization" placeholder="e.g. Sreema Tailors & Fashion Studio">
+                            </div>
+                            <div class="col-12">
+                                <label for="topic" class="form-label small fw-bold text-dark">Inquiry Subject</label>
+                                <select class="form-select rounded-pill p-2 px-3 border" id="topic" name="topic">
+                                    <option value="Boutique Consultation">Boutique Quality Consultation</option>
+                                    <option value="Model Accuracy Feedback">Defect Segmentation Feedback</option>
+                                    <option value="Academic Project Question">MCA Academic Project Inquiries</option>
+                                    <option value="Dataset Contribution">Contributing Sewing Seam Datasets</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label small fw-bold text-dark">Your Message</label>
+                                <textarea class="form-control rounded-4 p-3 border" id="message" name="message" rows="4" placeholder="Detail your query or sewing machine calibration challenges..." required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-nude btn-lg w-100 shadow-sm">
+                                    <i class="bi bi-send me-2"></i> Submit Inquiry
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Academic & Project Info Card -->
+            <div class="col-lg-5">
+                <div class="atelier-card p-4 p-md-5 mb-4 shadow-sm">
+                    <span class="brand-badge mb-2">Project Credentials</span>
+                    <h4 class="font-serif fw-bold mb-3">Academic Context</h4>
+                    <p class="text-secondary small mb-4">
+                        StitchSense is developed as a Master of Computer Applications (MCA) Final Year Project investigating deep learning solutions for small-scale garment production quality assurance.
+                    </p>
+
+                    <div class="d-flex flex-column gap-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="step-badge"><i class="bi bi-mortarboard"></i></div>
+                            <div>
+                                <strong class="d-block text-dark small">Degree Program</strong>
+                                <span class="text-secondary small">Master of Computer Applications (MCA)</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="step-badge"><i class="bi bi-laptop"></i></div>
+                            <div>
+                                <strong class="d-block text-dark small">Technology Stack</strong>
+                                <span class="text-secondary small">Python 3.12.5, Flask, Bootstrap 5, PyTorch SMP</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="step-badge"><i class="bi bi-lightning-charge"></i></div>
+                            <div>
+                                <strong class="d-block text-dark small">Hardware Optimization</strong>
+                                <span class="text-secondary small">Intel Iris Xe CPU Execution (Zero GPU required)</span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="step-badge"><i class="bi bi-geo-alt"></i></div>
+                            <div>
+                                <strong class="d-block text-dark small">Environment</strong>
+                                <span class="text-secondary small">Windows 11 / Visual Studio Code</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Help Card -->
+                <div class="atelier-card p-4 bg-white shadow-sm border border-light-subtle">
+                    <h6 class="fw-bold text-dark mb-2"><i class="bi bi-question-circle text-muted me-1"></i> Quick Assistance</h6>
+                    <p class="text-secondary small mb-2">Looking to test the segmentation model immediately without uploading your own photo?</p>
+                    <a href="{{ url_for('demo', defect_type='skipped_stitch') }}" class="btn btn-sm btn-nude-outline w-100">
+                        Launch Skipped Stitch Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

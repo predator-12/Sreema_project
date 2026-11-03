@@ -1,0 +1,58 @@
+{
+  "project": {
+    "name": "StitchSense",
+    "version": "1.0.0",
+    "description": "AI-Powered Sewing Defect Detection and Repair Assistant"
+  },
+  "device": {
+    "use_cuda": false,
+    "num_threads": 4
+  },
+  "model": {
+    "architecture": "Unet",
+    "encoder_name": "mobilenet_v2",
+    "encoder_weights": "imagenet",
+    "in_channels": 3,
+    "classes": 6
+  },
+  "classes": {
+    "0": "Normal / Background",
+    "1": "Broken / Skipped Stitch",
+    "2": "Seam Puckering",
+    "3": "Open Seam",
+    "4": "Misaligned Seam",
+    "5": "Needle Cut / Fabric Hole"
+  },
+  "class_colors": {
+    "0": [0, 0, 0],
+    "1": [255, 59, 48],
+    "2": [255, 149, 0],
+    "3": [175, 82, 222],
+    "4": [255, 204, 0],
+    "5": [0, 122, 255]
+  },
+  "dataset": {
+    "raw_dir": "data/raw",
+    "images_dir": "data/processed/images",
+    "masks_dir": "data/processed/masks",
+    "splits_dir": "data/splits",
+    "image_size": [512, 512],
+    "batch_size": 4,
+    "num_workers": 0
+  },
+  "training": {
+    "epochs": 25,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "focal_loss_weight": 0.6,
+    "dice_loss_weight": 0.4,
+    "early_stopping_patience": 6,
+    "save_dir": "weights",
+    "checkpoint_name": "stitchsense_best.pth"
+  },
+  "inference": {
+    "confidence_threshold": 0.45,
+    "min_defect_area_px": 25
+  }
+}
+

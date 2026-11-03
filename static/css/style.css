@@ -1,0 +1,449 @@
+/* ==========================================================================
+   StitchSense Atelier Design System & Stylesheet
+   Theme: Nude Pink, Cream, White & Soft Neutrals
+   Typography: Playfair Display (Headings) + Plus Jakarta Sans (Body)
+   ========================================================================== */
+
+:root {
+    /* Nude Pink & Blush Palette */
+    --nude-primary: #D4A396;
+    --nude-dark: #B57F72;
+    --nude-hover: #A26E61;
+    --nude-light: #F7EDE8;
+    --nude-soft: #FBF4F1;
+    --nude-blush: #E8C5C8;
+    
+    /* Cream & Warm White Palette */
+    --cream-bg: #FAF7F2;
+    --cream-surface: #FFFDF9;
+    --cream-card: #FFFFFF;
+    --cream-tint: #F4EFEB;
+    
+    /* Soft Neutrals & Warm Charcoal */
+    --text-primary: #3B2E2A;
+    --text-secondary: #74645E;
+    --text-muted: #968680;
+    --border-soft: #EFE7E1;
+    --border-focus: #D4A396;
+    
+    /* Luxury Atelier Accents */
+    --accent-gold: #C59B63;
+    --accent-gold-light: #F6EFE5;
+    
+    /* Defect & Quality Indicators (Harmonized Warm Tones) */
+    --status-pass: #4E8752;
+    --status-pass-bg: #EBF4EC;
+    --status-warning: #C97A3E;
+    --status-warning-bg: #FDF2E9;
+    --status-danger: #B94A48;
+    --status-danger-bg: #FBEBEB;
+
+    /* Elevation & Shadows */
+    --shadow-soft: 0 4px 20px rgba(181, 127, 114, 0.08);
+    --shadow-hover: 0 10px 30px rgba(181, 127, 114, 0.14);
+    --shadow-card: 0 8px 24px rgba(59, 46, 42, 0.05);
+
+    /* Radii */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-pill: 50px;
+}
+
+/* Base Document Styling */
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--cream-bg);
+    color: var(--text-primary);
+    line-height: 1.65;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   Navigation Bar (Atelier Luxury Style)
+   ========================================================================== */
+.atelier-navbar {
+    background-color: rgba(255, 253, 249, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 0.85rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    transition: all 0.3s ease;
+}
+
+.brand-badge {
+    background-color: var(--nude-light);
+    color: var(--nude-dark);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.nav-link-custom {
+    color: var(--text-secondary) !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem !important;
+    border-radius: var(--radius-pill);
+    transition: all 0.2s ease;
+}
+
+.nav-link-custom:hover {
+    color: var(--nude-dark) !important;
+    background-color: var(--nude-soft);
+}
+
+.nav-link-custom.active {
+    color: var(--nude-dark) !important;
+    background-color: var(--nude-light);
+}
+
+/* ==========================================================================
+   Buttons & Pills
+   ========================================================================== */
+.btn-nude {
+    background-color: var(--nude-primary);
+    color: #FFFFFF !important;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-pill);
+    padding: 0.7rem 1.6rem;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(212, 163, 150, 0.35);
+}
+
+.btn-nude:hover {
+    background-color: var(--nude-dark);
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(181, 127, 114, 0.45);
+}
+
+.btn-nude-outline {
+    background-color: transparent;
+    color: var(--nude-dark) !important;
+    font-weight: 600;
+    border: 1.5px solid var(--nude-primary);
+    border-radius: var(--radius-pill);
+    padding: 0.65rem 1.5rem;
+    transition: all 0.25s ease;
+}
+
+.btn-nude-outline:hover {
+    background-color: var(--nude-light);
+    color: var(--nude-hover) !important;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Atelier Cards
+   ========================================================================== */
+.atelier-card {
+    background-color: var(--cream-card);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.atelier-card:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--nude-primary);
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero-wrapper {
+    background: radial-gradient(circle at 10% 20%, #FAF4F0 0%, #FAF7F2 90%);
+    padding: 4.5rem 0 3.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--nude-light);
+    color: var(--nude-dark);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(212, 163, 150, 0.3);
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin-bottom: 2rem;
+}
+
+/* Floating Seam Feature Badge */
+.hero-seam-badge {
+    background: #FFFFFF;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.4rem;
+    box-shadow: var(--shadow-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* ==========================================================================
+   Sample Garment Chips
+   ========================================================================== */
+.demo-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--cream-surface);
+    border: 1px solid var(--border-soft);
+    color: var(--text-primary);
+    padding: 0.55rem 1.1rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.demo-chip:hover {
+    background-color: var(--nude-light);
+    border-color: var(--nude-primary);
+    color: var(--nude-dark);
+    transform: translateY(-2px);
+}
+
+.chip-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+/* ==========================================================================
+   Upload Studio & Dropzone
+   ========================================================================== */
+.upload-studio-card {
+    background: #FFFFFF;
+    border: 1.5px dashed #D8C8BF;
+    border-radius: var(--radius-lg);
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.upload-studio-card:hover, .upload-studio-card.dragover {
+    border-color: var(--nude-primary);
+    background-color: var(--nude-soft);
+}
+
+.upload-icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--nude-light);
+    color: var(--nude-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin: 0 auto 1.25rem;
+}
+
+.file-input-hidden {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.preview-container {
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.preview-container img {
+    max-height: 240px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+}
+
+/* ==========================================================================
+   Dual-View Inspection Window (Dashboard)
+   ========================================================================== */
+.inspection-frame {
+    background-color: #241E1C;
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    text-align: center;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inspection-frame img {
+    max-width: 100%;
+    max-height: 420px;
+    border-radius: 6px;
+    object-fit: contain;
+}
+
+.kpi-tile {
+    background: #FFFFFF;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.kpi-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+}
+
+.kpi-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-top: 0.3rem;
+    display: block;
+}
+
+/* Quality Status Colors */
+.status-pill-pass {
+    background-color: var(--status-pass-bg);
+    color: var(--status-pass);
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    display: inline-block;
+}
+
+.status-pill-fail {
+    background-color: var(--status-danger-bg);
+    color: var(--status-danger);
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    display: inline-block;
+}
+
+/* ==========================================================================
+   Tailoring Remediation Cards
+   ========================================================================== */
+.repair-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.repair-header {
+    background-color: var(--cream-tint);
+    padding: 1.1rem 1.5rem;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+.step-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--nude-light);
+    color: var(--nude-dark);
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.atelier-footer {
+    background-color: #2F2420;
+    color: #D1C5BD;
+    margin-top: auto;
+    padding-top: 4rem;
+}
+
+.footer-heading {
+    font-family: 'Playfair Display', serif;
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    margin-bottom: 1.2rem;
+}
+
+.footer-link {
+    color: #B5A79F;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.92rem;
+}
+
+.footer-link:hover {
+    color: var(--nude-primary);
+}
+
+.footer-bottom {
+    border-top: 1px solid #443631;
+    padding: 1.4rem 0;
+    margin-top: 3rem;
+    font-size: 0.85rem;
+    color: #8C7C75;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

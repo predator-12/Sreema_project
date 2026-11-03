@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}About StitchSense | AI-Powered Sewing Defect Assistant{% endblock %}
+
+{% block content %}
+<!-- Header Banner -->
+<section class="py-5" style="background: radial-gradient(circle at 10% 20%, #FAF4F0 0%, #FAF7F2 100%);">
+    <div class="container py-3 text-center">
+        <span class="hero-tag">Academic Research & Boutique Engineering</span>
+        <h1 class="display-5 fw-bold mb-3">About StitchSense</h1>
+        <p class="text-secondary max-w-700 mx-auto">
+            An intelligent computer vision system engineered to bridge haute couture tailoring craftsmanship with modern semantic segmentation.
+        </p>
+    </div>
+</section>
+
+<!-- Mission & Problem Statement -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center g-5 mb-5">
+            <div class="col-lg-6">
+                <span class="brand-badge mb-2">The Challenge</span>
+                <h2 class="display-6 fw-bold mb-4">The Hidden Cost of Sewing Defects in Modern Tailoring</h2>
+                <p class="text-secondary">
+                    In boutique fashion studios and home tailoring businesses, sewing flaws often remain undetected until final customer fittings. A single blunt needle or slightly miscalibrated thread tension dial can chew delicate knit fibers or cause structural seam failure during routine laundering.
+                </p>
+                <p class="text-secondary">
+                    Traditional industrial quality control systems rely on massive overhead conveyor cameras designed for high-speed mills. Home tailors and boutique ateliers have lacked an accessible, lightweight assistant that can run on standard workshop laptops without expensive GPU clusters.
+                </p>
+                <div class="d-flex gap-4 mt-4 pt-2">
+                    <div class="border-start border-3 border-danger ps-3">
+                        <h4 class="fw-bold mb-0 text-dark">5 Distinct</h4>
+                        <small class="text-muted">Sewing Defect Classes</small>
+                    </div>
+                    <div class="border-start border-3 border-warning ps-3">
+                        <h4 class="fw-bold mb-0 text-dark">&lt; 100 ms</h4>
+                        <small class="text-muted">CPU Inference Latency</small>
+                    </div>
+                    <div class="border-start border-3 border-success ps-3">
+                        <h4 class="fw-bold mb-0 text-dark">Zero GPU</h4>
+                        <small class="text-muted">Standard Intel Iris Xe</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="atelier-card p-4 shadow-sm">
+                    <h5 class="font-serif fw-bold mb-3 pb-2 border-bottom">Core Objectives of StitchSense</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                        <li class="d-flex align-items-start gap-3">
+                            <span class="step-badge">1</span>
+                            <div>
+                                <strong class="d-block text-dark">Pixel-Level Defect Localization</strong>
+                                <small class="text-secondary">Precisely segment fine thread deviations, skipped loops, and puckered fabric folds.</small>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-start gap-3">
+                            <span class="step-badge">2</span>
+                            <div>
+                                <strong class="d-block text-dark">Mechanical Root-Cause Diagnosis</strong>
+                                <small class="text-secondary">Identify whether needle burrs, thread tension imbalance, or feed dogs are causing the defect.</small>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-start gap-3">
+                            <span class="step-badge">3</span>
+                            <div>
+                                <strong class="d-block text-dark">Actionable Tailoring Remediation</strong>
+                                <small class="text-secondary">Provide step-by-step repair guides and printable alteration tickets for the workshop staff.</small>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-start gap-3">
+                            <span class="step-badge">4</span>
+                            <div>
+                                <strong class="d-block text-dark">Accessible CPU Deployment</strong>
+                                <small class="text-secondary">Engineered specifically for Windows 11 laptops with Intel Iris Xe graphics.</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Architecture Overview -->
+        <div class="row g-4 my-4">
+            <div class="col-12 text-center mb-2">
+                <span class="brand-badge mb-2">Under The Hood</span>
+                <h2 class="display-6 fw-bold">Deep Learning Architecture</h2>
+            </div>
+
+            <div class="col-md-4">
+                <div class="atelier-card p-4 h-100">
+                    <div class="fs-2 text-danger mb-2">📐</div>
+                    <h4 class="font-serif fw-bold mb-2">SMP U-Net Architecture</h4>
+                    <p class="text-secondary small">
+                        U-Net utilizes long skip connections between encoder and decoder feature maps. This design is optimal for sewing defect segmentation because skip connections preserve fine, high-frequency spatial details required to detect thin 0.5mm stitches.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="atelier-card p-4 h-100">
+                    <div class="fs-2 text-warning mb-2">⚡</div>
+                    <h4 class="font-serif fw-bold mb-2">MobileNetV2 Backbone</h4>
+                    <p class="text-secondary small">
+                        By utilizing inverted residual bottlenecks and depthwise separable convolutions, MobileNetV2 drastically reduces compute FLOPs and parameter counts (~2.2M parameters) without sacrificing spatial fidelity on CPU hardware.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="atelier-card p-4 h-100">
+                    <div class="fs-2 text-primary mb-2">⚖️</div>
+                    <h4 class="font-serif fw-bold mb-2">Compound Loss Formulation</h4>
+                    <p class="text-secondary small">
+                        Combines Multi-Class Focal Loss (down-weighting easy background fabric pixels) with Soft Dice Loss (directly optimizing region overlap), overcoming extreme class imbalance where stitches occupy &lt; 5% of the frame.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Academic Accreditation Card -->
+        <div class="atelier-card p-4 mt-5 bg-white border border-light-subtle">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h4 class="font-serif fw-bold mb-2">Master of Computer Applications (MCA) Project</h4>
+                    <p class="text-secondary mb-0 small">
+                        Project StitchSense represents an applied research capstone combining deep learning computer vision with expert systems for garment manufacturing automation. Developed under academic supervision with Python 3.12.5 and PyTorch.
+                    </p>
+                </div>
+                <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                    <a href="{{ url_for('upload_page') }}" class="btn btn-nude">Test System Live</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
