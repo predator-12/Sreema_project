@@ -17,12 +17,15 @@ albumentations>=1.4.0
 
 # PyTorch CPU Deep Learning & Segmentation Models
 # Recommended install: pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
-torch>=2.2.0
-torchvision>=0.17.0
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.7.0+cpu
+torchvision==0.22.0+cpu
 segmentation-models-pytorch>=0.3.3
 timm>=0.9.12
+
 
 # Configuration & Utilities
 pyyaml>=6.0.1
 tqdm>=4.66.0
+
 
